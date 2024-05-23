@@ -16,7 +16,7 @@
             <div><a href="#">Galeria</a></div>
         </nav>
     </header>
-    
+
     <section>
         <div id="espacio_header">
             <h1 id="titulo" class="animacion-texto">Restaurant els coberts</h1>
@@ -119,17 +119,54 @@
         <div class="imagen-container"><img src="platos/img-1.jpg" class="img-oscura" alt=""></div>
         <div class="imagen-container"><img src="platos/img-1.jpg" class="img-oscura img-fosca" alt=""></div>
     </div>
-
     <section class="seccion1">
-        <h2 class="h2letra">Vídeos del restaurate</h2><br><br>
+        <h2 class="h2letra">Vídeos del restaurante</h2><br><br>
         <div id="video-container">
-            <video id="restaurant-video" controls muted>
+            <video autoplay muted loop id="restaurant-video">
                 <source src="Proyecto sin título.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
     </section>
-        
+
+    <div id="button-reproductor">
+        <button id="myBtn" onclick="togglePlayPause()">
+            <img id="playPauseIcon" src="play.png" alt="Play">
+        </button>
+
+        <button id="muteBtn" onclick="toggleMute()">
+            <img id="muteIcon" src="no_silenciar.png" alt="Mute">
+        </button>
+    </div>
+
+    <script>
+        var video = document.getElementById("restaurant-video");
+        var btn = document.getElementById("myBtn");
+        var playPauseIcon = document.getElementById("playPauseIcon");
+        var muteBtn = document.getElementById("muteBtn");
+        var muteIcon = document.getElementById("muteIcon");
+
+        function togglePlayPause() {
+            if (video.paused) {
+                video.play();
+                playPauseIcon.src = "pause.png";
+            } else {
+                video.pause();
+                playPauseIcon.src = "play.png";
+            }
+        }
+
+        function toggleMute() {
+            if (video.muted) {
+                video.muted = false;
+                muteIcon.src = "no_muted.png";
+            } else {
+                video.muted = true;
+                muteIcon.src = "silenciar.png";
+            }
+        }
+    </script>
+
 </body>
 
 </html>
